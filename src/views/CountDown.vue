@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import * as moment from 'moment';
 
 import CountDownSetup from '@/components/CountDownSetup.vue';
@@ -15,13 +15,14 @@ import CountDownViewer from '@/components/CountDownViewer.vue';
 @Component({
   components: {
     CountDownSetup,
-    CountDownViewer,
-  },
+    CountDownViewer
+  }
 })
 export default class CountDown extends Vue {
   public targetDate: moment.Moment | null = null;
 
-  public created(): void {
+  @Watch('$route')
+  private routeChanged(): void {
     const queryTargetDate = this.$route.query.targetDate;
     if (queryTargetDate) {
       this.targetDate = moment(queryTargetDate);
