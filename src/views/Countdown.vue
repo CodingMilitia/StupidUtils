@@ -26,6 +26,8 @@ export default class Countdown extends Vue {
     const queryTargetDate = this.$route.query.targetDate;
     if (queryTargetDate) {
       this.targetDate = moment(queryTargetDate);
+    } else {
+      this.targetDate = null;
     }
   }
 }
