@@ -7,9 +7,10 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import * as moment from 'moment';
+
 import CountDownSetup from '@/components/CountDownSetup.vue';
 import CountDownViewer from '@/components/CountDownViewer.vue';
-import * as moment from 'moment';
 
 @Component({
   components: {
@@ -21,9 +22,9 @@ export default class CountDown extends Vue {
   public targetDate: moment.Moment | null = null;
 
   public created(): void {
-    const queryTargetUnixTimestamp = this.$route.query.targetUnixTimestamp;
-    if (queryTargetUnixTimestamp) {
-      this.targetDate = moment(queryTargetUnixTimestamp);
+    const queryTargetDate = this.$route.query.targetDate;
+    if (queryTargetDate) {
+      this.targetDate = moment(queryTargetDate);
     }
   }
 }

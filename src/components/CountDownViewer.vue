@@ -26,7 +26,7 @@ export default class CountDownViewer extends Vue {
   }
 
   public getTargetDate(): string {
-    return `${this.targetDate.format('llll')} (${this.targetDate.utcOffset()})`;
+    return `${this.targetDate.format('llll')}`;
   }
 
   private refreshRemaining(): void {
