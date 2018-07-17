@@ -1,5 +1,5 @@
 <template>
-  <div class="count-down">
+  <div class="countdown">
     <h1>Specify target date</h1>
     <form>
       <div>
@@ -13,7 +13,7 @@
     </form>
     <div>
         <div v-if="targetDate">
-          <router-link :to="{ path: 'count-down', query: { targetDate: targetDate }}">Link</router-link>
+          <router-link :to="{ path: 'countdown', query: { targetDate: targetDate }}">Link</router-link>
         </div>
       </div>
   </div>
@@ -24,13 +24,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import * as moment from 'moment';
 
 @Component
-export default class CountDownSetup extends Vue {
+export default class CountdownSetup extends Vue {
   public targetDate: string | null = null;
   public date: moment.Moment | null = null;
   public hours: number | null = null;
   public minutes: number | null = null;
 
-  public generateTargetLink(): void {    
+  public generateTargetLink(): void {
     this.targetDate = moment(this.date!)
       .hour(+this.hours!)
       .minute(+this.minutes!)

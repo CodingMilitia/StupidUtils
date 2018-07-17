@@ -1,7 +1,7 @@
 <template>
-  <div class="count-down">
-    <CountDownViewer v-if="targetDate" v-bind:target-date="targetDate"></CountDownViewer>
-    <CountDownSetup v-else></CountDownSetup>
+  <div class="countdown">
+    <CountdownViewer v-if="targetDate" v-bind:target-date="targetDate"></CountdownViewer>
+    <CountdownSetup v-else></CountdownSetup>
   </div>
 </template>
 
@@ -9,16 +9,16 @@
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import * as moment from 'moment';
 
-import CountDownSetup from '@/components/CountDownSetup.vue';
-import CountDownViewer from '@/components/CountDownViewer.vue';
+import CountdownSetup from '@/components/CountdownSetup.vue';
+import CountdownViewer from '@/components/CountdownViewer.vue';
 
 @Component({
   components: {
-    CountDownSetup,
-    CountDownViewer
-  }
+    CountdownSetup,
+    CountdownViewer,
+  },
 })
-export default class CountDown extends Vue {
+export default class Countdown extends Vue {
   public targetDate: moment.Moment | null = null;
 
   @Watch('$route')

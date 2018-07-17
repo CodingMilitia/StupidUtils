@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 // lazy loading routes, considering they're loose utils, the whole app doesn't need to be loaded all the time
 const Home = () => import('./views/Home.vue');
-const CountDown = () => import('./views/CountDown.vue');
+const Countdown = () => import('./views/Countdown.vue');
 
 
 Vue.use(Router);
@@ -16,9 +16,9 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/count-down',
-      name: 'count-down',
-      component: CountDown,
+      path: '/countdown',
+      name: 'countdown',
+      component: Countdown,
     },
   ],
 });

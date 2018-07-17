@@ -1,5 +1,5 @@
 <template>
-  <div class="count-down">
+  <div class="countdown">
     <h1>Counting down to: {{ getTargetDate() }}</h1>
     {{ remaining }}
   </div>
@@ -11,7 +11,7 @@ import * as moment from 'moment';
 import { setInterval, clearInterval } from 'timers';
 
 @Component
-export default class CountDownViewer extends Vue {
+export default class CountdownViewer extends Vue {
   public remaining: string = '';
 
   @Prop() private targetDate!: moment.Moment;
